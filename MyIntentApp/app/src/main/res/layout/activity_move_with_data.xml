@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".MoveActivity">
-
+    tools:context=".MoveWithDataActivity">
     <TextView
+        android:id="@+id/tv_data_received"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/this_is_moveactivity" />
+        android:text="@string/data_received" />
 
 </RelativeLayout>
