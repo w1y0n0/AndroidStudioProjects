@@ -36,15 +36,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_move_activity_object -> {
-                val person = Person(
-                    "DicodingAcademy",
-                    5,
-                    "academy@dicoding.com",
-                    "Bandung"
+//                val person = Person(
+//                    "DicodingAcademy",
+//                    5,
+//                    "academy@dicoding.com",
+//                    "Bandung"
+//                )
+
+                val persons = ArrayList<Person>(
+                    arrayListOf(
+                        Person(
+                            "DicodingAcademy",
+                            5,
+                            "academy@dicoding.com",
+                            "Bandung"
+                        )
+                    )
                 )
 
                 val moveWithObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
-                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
+//                moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
+                moveWithObjectIntent.putParcelableArrayListExtra(MoveWithObjectActivity.EXTRA_PERSON, persons)
                 startActivity(moveWithObjectIntent)
             }
         }
