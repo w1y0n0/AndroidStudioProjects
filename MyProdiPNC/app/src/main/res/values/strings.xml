@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name">MyProdiPNC</string>
+    <string name="title_home">Program Studi</string>
+    <string name="nama_prodi">Nama Prodi</string>
+    <string name="jenjang">Jenjang Studi</string>
+    <string name="share">Share</string>
+    <string name="deskripsi">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="tgl_berdiri">Tanggal Berdiri</string>
+    <string name="akreditasi">Akreditasi</string>
+    <string name="sk_selenggara">SK Selenggara</string>
+    <string name="tgl_sk_selenggara">Tanggal SK Selenggara</string>
+    <string name="informasi_umum">Informasi Umum</string>
+    <string name="ilmu_yg_dipelajari">Ilmu yang Dipelajari</string>
+    <string name="kompetensi">Kompetensi</string>
+    <string name="about_user_icon">about_user_icon</string>
+    <string name="back_icon">back icon</string>
+    <string name="about_me">About Me</string>
+    <string name="detail">Detail Program Studi</string>
+    <string name="name">Wiyono</string>
+    <string name="email">wiyono30@gmail.com</string>
+    <string name="data_program_studi">Data Program Studi</string>
+
+    <string-array name="data_nama_prodi">
+        <item>Teknik Informatika</item>
+        <item>Teknik Mesin</item>
+        <item>Teknik Elektronika</item>
+        <item>Teknik Listrik</item>
+        <item>Teknik Pengendalian Pencemaran Lingkungan</item>
+        <item>Pengembangan Produk Agroindustri</item>
+        <item>Teknologi Rekayasa Multimedia</item>
+        <item>Rekayasa Keamanan Siber</item>
+        <item>Akuntansi Lembaga Keuangan Syariah</item>
+        <item>Teknologi Rekayasa Mekatronika</item>
+    </string-array>
+
+    <string-array name="data_jenjang">
+        <item>Diploma III</item>
+        <item>Diploma III</item>
+        <item>Diploma III</item>
+        <item>Diploma III</item>
+        <item>Sarjana Terapan</item>
+        <item>Sarjana Terapan</item>
+        <item>Sarjana Terapan</item>
+        <item>Sarjana Terapan</item>
+        <item>Sarjana Terapan</item>
+        <item>Sarjana Terapan</item>
+    </string-array>
+
+    <string-array name="data_tgl_berdiri">
+        <item>8 Juli 2008</item>
+        <item>8 Juli 2008</item>
+        <item>8 Juli 2008</item>
+        <item>15 September 2015</item>
+        <item>13 September 2016</item>
+        <item>3 Februari 2020</item>
+        <item>9 Maret 2022</item>
+        <item>11 Maret 2022</item>
+        <item>1 Juli 2022</item>
+        <item>14 Februari 2023</item>
+    </string-array>
+
+    <string-array name="data_akreditasi">
+        <item>Baik Sekali</item>
+        <item>Baik Sekali</item>
+        <item>Baik Sekali</item>
+        <item>Baik Sekali</item>
+        <item>Baik</item>
+        <item>Baik</item>
+        <item>-</item>
+        <item>-</item>
+        <item>-</item>
+        <item>-</item>
+    </string-array>
+
+    <string-array name="data_sk_selenggara">
+        <item>Permendikbud 102/2014</item>
+        <item>Permendikbud 102/2014</item>
+        <item>Permendikbud 102/2014</item>
+        <item>16/KPT/I/2015</item>
+        <item>347/KPT/I/2016</item>
+        <item>206/M/2020</item>
+        <item>66/D/OT/2022</item>
+        <item>59/D/OT/2022</item>
+        <item>154/D/OT/2022</item>
+        <item>48/D/OT/2023</item>
+    </string-array>
+
+    <string-array name="data_tgl_sk_selenggara">
+        <item>3 Oktober 2014</item>
+        <item>3 Oktober 2014</item>
+        <item>3 Oktober 2014</item>
+        <item>15 September 2015</item>
+        <item>13 September 2016</item>
+        <item>3 Februari 2020</item>
+        <item>9 Maret 2022</item>
+        <item>11 Maret 2022</item>
+        <item>1 Juli 2022</item>
+        <item>14 Februari 2023</item>
+    </string-array>
+
+    <string-array name="data_informasi_umum">
+        <item>Studi tentang teknologi informasi, pemrograman, dan pengelolaan data.</item>
+        <item>Memfokuskan pada perancangan, produksi, dan pemeliharaan mesin.</item>
+        <item>Fokus pada teknologi elektronika, komponen, dan sistem komunikasi.</item>
+        <item>Mempelajari sistem pembangkit, distribusi, dan penggunaan tenaga listrik.</item>
+        <item>Memfokuskan pada pengelolaan lingkungan dan pengendalian pencemaran.</item>
+        <item>Mempelajari pengembangan produk dan teknologi dalam industri pertanian.</item>
+        <item>Studi tentang teknologi digital untuk pengembangan konten multimedia.</item>
+        <item>Fokus pada pengamanan data dan sistem informasi dari ancaman siber.</item>
+        <item>Studi akuntansi yang sesuai dengan prinsip syariah pada lembaga keuangan.</item>
+        <item>Mempelajari integrasi mekanik, elektronik, dan sistem kontrol dalam satu perangkat.</item>
+    </string-array>
+
+    <string-array name="data_ilmu_yg_dipelajari">
+        <item>Pemrograman, sistem basis data, kecerdasan buatan, dan jaringan komputer.</item>
+        <item>Kinematika, termodinamika, mekanika fluida, dan manufaktur.</item>
+        <item>Rangkaian elektronik, mikroprosesor, dan sistem kontrol.</item>
+        <item>Elektromagnetika, mesin listrik, dan sistem tenaga.</item>
+        <item>Ekologi, teknik pengolahan limbah, dan regulasi lingkungan.</item>
+        <item>Teknologi pangan, teknik pascapanen, dan manajemen produksi.</item>
+        <item>Desain grafis, animasi, pemrograman multimedia, dan pengeditan video.</item>
+        <item>Kriptografi, jaringan komputer, dan forensik digital.</item>
+        <item>Akuntansi syariah, ekonomi Islam, dan manajemen risiko.</item>
+        <item>Robotika, sensor, sistem kontrol, dan otomasi industri.</item>
+    </string-array>
+
+    <string-array name="data_kompetensi">
+        <item>Mampu mengembangkan perangkat lunak, mengelola data, dan merancang sistem jaringan.</item>
+        <item>Menguasai teknik perancangan mesin, analisis sistem mekanik, dan pemeliharaan alat industri.</item>
+        <item>Menguasai teknik perancangan sistem elektronik dan pemeliharaan alat elektronik.</item>
+        <item>Mampu merancang instalasi listrik, mengoperasikan sistem distribusi, dan mengelola energi listrik.</item>
+        <item>Mampu merancang sistem pengolahan limbah dan melakukan pengendalian pencemaran lingkungan.</item>
+        <item>Menguasai proses produksi agroindustri, pengolahan produk pertanian, dan inovasi produk.</item>
+        <item>Menguasai pembuatan konten multimedia, desain digital, dan pengembangan aplikasi interaktif.</item>
+        <item>Mampu mendesain sistem keamanan siber, menganalisis ancaman, dan melakukan mitigasi risiko.</item>
+        <item>Mampu menyusun laporan keuangan syariah dan menganalisis transaksi sesuai prinsip syariah.</item>
+        <item>Mampu merancang sistem mekatronika, integrasi sensor, dan otomatisasi mesin.</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/d3_ti</item>
+        <item>@drawable/d3_tm</item>
+        <item>@drawable/d3_te</item>
+        <item>@drawable/d3_tl</item>
+        <item>@drawable/d4_tppl</item>
+        <item>@drawable/d4_ppa</item>
+        <item>@drawable/d4_trm</item>
+        <item>@drawable/d4_rks</item>
+        <item>@drawable/d4_alks</item>
+        <item>@drawable/d4_trmk</item>
+    </integer-array>
+
+</resources>
