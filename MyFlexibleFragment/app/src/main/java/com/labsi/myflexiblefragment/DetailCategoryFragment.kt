@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class DetailCategoryFragment : Fragment() {
 
@@ -35,14 +36,40 @@ class DetailCategoryFragment : Fragment() {
         btnProfile = view.findViewById(R.id.btn_profile)
         btnShowDialog = view.findViewById(R.id.btn_show_dialog)
 
+        btnShowDialog.setOnClickListener{
+            val optionDialogFragment = OptionDialogFragment()
+
+            val fragmentManager = childFragmentManager
+            optionDialogFragment.show(fragmentManager, OptionDialogFragment::class.java.simpleName)
+        }
+
         if (savedInstanceState != null) {
             val descFromBundle = savedInstanceState.getString(EXTRA_DESCRIPTION)
             description = descFromBundle
         }
+
         if (arguments != null) {
             val categoryName = arguments?.getString(EXTRA_NAME)
             tvCategoryName.text = categoryName
             tvCategoryDescription.text = description
+        }
+    }
+
+    /*
+    Gunakan method ini jika kita ingin menjaga data agar tetap aman ketika terjadi config changes (portrait - landscape)
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putString(EXTRA_DESCRIPTION, description)
+    }
+
+    /*
+    Kode yang akan dijalankan ketika option dialog dipilih ok
+    */
+    internal var optionDialogListener: OptionDialogFragment.OnOptionDialogListener = object : OptionDialogFragment.OnOptionDialogListener {
+        override fun onOptionChosen(text: String?) {
+            Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
         }
     }
 }
