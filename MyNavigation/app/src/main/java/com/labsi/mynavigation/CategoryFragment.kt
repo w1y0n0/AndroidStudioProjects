@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.labsi.mynavigation.databinding.FragmentCategoryBinding
 
+/**
+ * A simple [Fragment] subclass.
+ */
 class CategoryFragment : Fragment() {
 
     private var _binding: FragmentCategoryBinding? = null
@@ -31,12 +34,19 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        binding.btnCategoryLifestyle.setOnClickListener { view ->
+//            val mBundle = Bundle()
+//            mBundle.putString(EXTRA_NAME, "Lifestyle")
+//            mBundle.putLong(EXTRA_STOCK, 7)
+//            view.findNavController()
+//                .navigate(R.id.action_categoryFragment_to_detailCategoryFragment, mBundle)
+//        }
+
         binding.btnCategoryLifestyle.setOnClickListener { view ->
-            val mBundle = Bundle()
-            mBundle.putString(EXTRA_NAME, "Lifestyle")
-            mBundle.putLong(EXTRA_STOCK, 7)
-            view.findNavController()
-                .navigate(R.id.action_categoryFragment_to_detailCategoryFragment, mBundle)
+            val toDetailCategoryFragment = CategoryFragmentDirections.actionCategoryFragmentToDetailCategoryFragment()
+            toDetailCategoryFragment.name = "Lifestyle"
+            toDetailCategoryFragment.stock = 7
+            view.findNavController().navigate(toDetailCategoryFragment)
         }
     }
 

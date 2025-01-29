@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.labsi.mynavigation.databinding.FragmentDetailCategoryBinding
 
+/**
+ * A simple [Fragment] subclass.
+ */
 class DetailCategoryFragment : Fragment() {
 
     private var _binding: FragmentDetailCategoryBinding? = null
@@ -24,11 +27,13 @@ class DetailCategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
+        // val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
 
-        val dataNama = arguments?.getString(CategoryFragment.EXTRA_NAME)
-        val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
+        val dataName = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).name
+        val dataDescription = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).stock
 
-        binding.tvCategoryName.text = dataNama
+        binding.tvCategoryName.text = dataName
         binding.tvCategoryDescription.text = "Stock : $dataDescription"
     }
 
