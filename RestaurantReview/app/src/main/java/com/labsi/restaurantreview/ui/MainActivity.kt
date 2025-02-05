@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -17,6 +18,7 @@ import com.labsi.restaurantreview.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val mainViewModel by viewModels<MainViewModel>()
 
     companion object {
         private const val TAG = "MainActivity"
@@ -31,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MainViewModel::class.java)
         mainViewModel.restaurant.observe(this) { restaurant ->
             setRestaurantData(restaurant)
         }
