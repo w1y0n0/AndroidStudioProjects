@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -25,9 +26,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         if (v?.id == R.id.btn_category) {
             val categoryFragment = CategoryFragment()
             val fragmentManager = parentFragmentManager
-            fragmentManager.beginTransaction().apply {
+            fragmentManager.commit {
+                addToBackStack(null)
                 replace(R.id.frame_container, categoryFragment, CategoryFragment::class.java.simpleName)
-                commit()
             }
         }
     }
