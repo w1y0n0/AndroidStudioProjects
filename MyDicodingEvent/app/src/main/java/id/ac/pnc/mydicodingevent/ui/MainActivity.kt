@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
-        viewModel.getEventList("0")
+        viewModel.getEventList("")
         viewModel.listEventItem.observe(this){
             setReviewData(it)
         }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_event"
+        android:icon="@drawable/ic_event_24"
+        android:title="@string/title_upcoming" />
+
+    <item
+        android:id="@+id/navigation_finish_event"
+        android:icon="@drawable/ic_finishevent_24"
+        android:title="@string/title_finish_event" />
+
+</menu>
