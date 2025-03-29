@@ -1,8 +1,10 @@
 package id.ac.pnc.mydicodingevent.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -11,11 +13,13 @@ import coil.load
 import id.ac.pnc.mydicodingevent.databinding.ActivityDetailBinding
 import id.ac.pnc.mydicodingevent.utils.convertHtmlToFormattedString
 import id.ac.pnc.mydicodingevent.utils.convertStringToFormattedString
+import id.ac.pnc.mydicodingevent.utils.gotoUrl
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,6 +57,8 @@ class DetailActivity : AppCompatActivity() {
 
                 eventExpired.text = convertStringToFormattedString(result.endTime!!)
                 eventQuota.text = result.quota.toString()
+
+                eventRegisterButton.setOnClickListener { gotoUrl(this@DetailActivity, result.link) }
             }
         }
     }
