@@ -11,10 +11,10 @@ data class DetailEventResponse(
 	val message: String? = null,
 
 	@field:SerializedName("event")
-	val event: Event? = null
+	val event: EventDetail
 )
 
-data class Event(
+data class EventDetail(
 
 	@field:SerializedName("summary")
 	val summary: String? = null,
