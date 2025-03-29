@@ -53,13 +53,23 @@ class DetailActivity : AppCompatActivity() {
 //                    this.setSupportZoom(false)
 //                }
 //                eventWebView.setInitialScale(100)
-                eventDescriptions.text = result.description?.let { convertHtmlToFormattedString(it) }
+                eventDescriptions.text =
+                    result.description?.let { convertHtmlToFormattedString(it) }
 
-                eventExpired.text = convertStringToFormattedString(result.endTime!!)
+                eventExpired.text = result.endTime?.let { convertStringToFormattedString(it) }
                 eventQuota.text = result.quota.toString()
 
-                eventRegisterButton.setOnClickListener { gotoUrl(this@DetailActivity, result.link) }
+                eventRegisterButton.setOnClickListener {
+                    gotoUrl(
+                        this@DetailActivity,
+                        result.link
+                    )
+                }
             }
+        }
+
+        viewModel.isLoading.observe(this) { isLoading ->
+            showLoading(isLoading)
         }
     }
 
