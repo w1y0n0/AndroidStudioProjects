@@ -3,9 +3,10 @@
     <string name="event_name">Event Name</string>
     <string name="title_upcoming">Upcoming</string>
     <string name="title_finish_event">Finished</string>
-    <string name="detail_eventBy">Oleh:</string>
+    <string name="detail_eventBy">Diselenggarakan Oleh:</string>
     <string name="detail_openUntil">Terbuka Hingga:</string>
     <string name="detail_line">|</string>
     <string name="detail_quota">Kuota:</string>
     <string name="detail_participant">Peserta</string>
+    <string name="detail_category">Kategori:</string>
 </resources>

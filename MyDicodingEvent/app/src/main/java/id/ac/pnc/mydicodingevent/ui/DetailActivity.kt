@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import id.ac.pnc.mydicodingevent.databinding.ActivityDetailBinding
+import id.ac.pnc.mydicodingevent.utils.convertHtmlToFormattedString
 import id.ac.pnc.mydicodingevent.utils.convertStringToFormattedString
 
 class DetailActivity : AppCompatActivity() {
@@ -18,9 +19,8 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = ActivityDetailBinding.inflate(layoutInflater)
-
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,18 +29,27 @@ class DetailActivity : AppCompatActivity() {
 
         val eventId = intent.getStringExtra(EXTRA_ID)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
-        eventId.let {  id ->
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[DetailViewModel::class.java]
+        eventId.let { id ->
             viewModel.getDetailData(id!!)
         }
 
-        viewModel.listEventDetail.observe(this){ result ->
+        viewModel.listEventDetail.observe(this) { result ->
             binding.apply {
                 eventImage.load(result.mediaCover)
                 eventCategory.text = result.category
                 eventTitle.text = result.name
                 eventOrganizer.text = result.ownerName
-                eventSummary.text = result.summary
+//                eventWebView.loadDataWithBaseURL(null, result.description!!, "text/html", "UTF-8", null)
+//                eventWebView.settings.apply {
+//                    this.builtInZoomControls = false
+//                    this.setSupportZoom(false)
+//                }
+//                eventWebView.setInitialScale(100)
+                eventDescriptions.text = result.description?.let { convertHtmlToFormattedString(it) }
 
                 eventExpired.text = convertStringToFormattedString(result.endTime!!)
                 eventQuota.text = result.quota.toString()
@@ -56,7 +65,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    companion object{
+    companion object {
         const val EXTRA_ID = "extra_id"
     }
 }

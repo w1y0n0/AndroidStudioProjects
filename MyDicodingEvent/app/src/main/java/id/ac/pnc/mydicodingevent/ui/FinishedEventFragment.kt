@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import id.ac.pnc.mydicodingevent.data.response.ListEventsItem
 import id.ac.pnc.mydicodingevent.databinding.FragmentFinishedEventBinding
@@ -41,14 +40,13 @@ class FinishedEventFragment : Fragment() {
 
     }
 
-    private fun setEventData(listEvents: List<ListEventsItem>) {
+    private fun setEventData(consumerReviews: List<ListEventsItem>) {
         val adapter = EventAdapter()
-        adapter.submitList(listEvents)
+        adapter.submitList(consumerReviews)
         binding.apply {
             rvEvent.setHasFixedSize(true)
             rvEvent.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             rvEvent.adapter = adapter
-//            rvEvent.setText("")
         }
     }
 

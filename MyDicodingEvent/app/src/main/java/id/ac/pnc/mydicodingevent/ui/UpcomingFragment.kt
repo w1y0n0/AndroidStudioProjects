@@ -37,9 +37,9 @@ class UpcomingFragment : Fragment() {
         }
     }
 
-    private fun setEventData(listEvents: List<ListEventsItem>) {
+    private fun setEventData(listEvent: List<ListEventsItem>) {
         val adapter = EventAdapter()
-        adapter.submitList(listEvents)
+        adapter.submitList(listEvent)
         binding.apply {
             rvEvent.setHasFixedSize(true)
             rvEvent.layoutManager = LinearLayoutManager(requireActivity())
