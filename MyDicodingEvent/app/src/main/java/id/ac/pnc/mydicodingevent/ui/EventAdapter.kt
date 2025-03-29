@@ -1,5 +1,6 @@
 package id.ac.pnc.mydicodingevent.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.Scale
 import coil.size.Size
-import coil.transform.RoundedCornersTransformation
 import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.data.response.ListEventsItem
 import id.ac.pnc.mydicodingevent.databinding.ItemEventBinding
@@ -25,6 +25,13 @@ class EventAdapter: ListAdapter<ListEventsItem, EventAdapter.MyViewHolder>(DIFF_
                     Scale.FILL
                 }
                 tvItemName.text = eventItem.name
+
+                root.setOnClickListener {
+                    Intent(root.context, DetailActivity::class.java).also { intent ->
+                        intent.putExtra(DetailActivity.EXTRA_ID, eventItem.id.toString())
+                        it.context.startActivity(intent)
+                    }
+                }
             }
         }
     }
