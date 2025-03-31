@@ -10,9 +10,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnc.mydicodingevent.ListEventAdapter
+import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.databinding.FragmentHomeBinding
 import id.ac.pnc.mydicodingevent.ui.finished.FinishedViewModel
 import id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel
+import id.ac.pnc.mydicodingevent.utils.HorizontalSpacingItemDecoration
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +36,7 @@ class HomeFragment : Fragment() {
             finishedViewModel.getEvents(limit)
             upcomingViewModel.getEvents(limit)
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +44,7 @@ class HomeFragment : Fragment() {
 
         getFinishedEvent()
         getUpcomingEvent()
+
     }
 
     override fun onCreateView(
@@ -94,6 +98,10 @@ class HomeFragment : Fragment() {
                 LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             val adapter = ListEventAdapter(it, horizontal = true)
             binding.rvUpcoming.adapter = adapter
+
+            val spacingInPixels = resources.getDimensionPixelSize(R.dimen.item_spacing_8)
+            binding.rvUpcoming.addItemDecoration(HorizontalSpacingItemDecoration(spacingInPixels))
+
             binding.upcomingErrorPage.visibility = View.GONE
         }
 

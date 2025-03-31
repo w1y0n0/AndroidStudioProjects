@@ -33,9 +33,7 @@
                 android:text="@string/card_title"
                 android:textColor="@color/primary_pink"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
-                tools:text="@tools:sample/lorem"
-
-                />
+                tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/card_summary"
@@ -49,7 +47,6 @@
                 android:textColor="?android:attr/textColorSecondary"
                 tools:text="@tools:sample/lorem/random" />
         </LinearLayout>
-
 
     </LinearLayout>
 
