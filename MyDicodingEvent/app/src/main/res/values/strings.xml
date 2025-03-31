@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name">Dicoding Event Apps</string>
-    <string name="event_name">Event Name</string>
+    <string name="title_bar">Dicoding Event</string>
+    <string name="title_home">Home</string>
     <string name="title_upcoming">Upcoming</string>
-    <string name="title_finish_event">Finished</string>
-    <string name="detail_eventBy">Diselenggarakan Oleh:</string>
-    <string name="detail_openUntil">Terbuka Hingga:</string>
-    <string name="detail_line">|</string>
-    <string name="detail_quota">Kuota:</string>
-    <string name="detail_participant">Peserta</string>
-    <string name="detail_category">Kategori:</string>
-    <string name="detail_register">Register</string>
+    <string name="title_finished">Finished</string>
+    <string name="card_title">Event Title</string>
+    <string name="card_summary">Summary\n</string>
+    <string name="cd_card_image">A cover of a event</string>
+    <string name="image_cover">imageCover</string>
+    <string name="detail_register">DAFTAR GRATIS</string>
+    <string name="pendaftaran_tutup">Pendaftaran Tutup</string>
+    <string name="sisa_kuota">Sisa kuota: %1$s</string>
+    <string name="penyelenggara">Diselenggarakan oleh: %1$s</string>
+    <string name="oops_something_went_wrong">Oops, Something went wrong!</string>
+    <string name="try_again">Try Again</string>
+    <string name="error_image">error image</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="finished_events">Finished Events</string>
+    <string name="search">Search Events</string>
+    <string name="searchbar_hint">Search Events</string>
+    <string name="try_again_upcoming_events_connection_error">Try Again Upcoming Events - Connection Error</string>
+    <string name="try_again_finished_events_connection_error">Try Again Finished Events - Connection Error</string>
+    <string name="finished_events_list">List of finished events</string>
 </resources>

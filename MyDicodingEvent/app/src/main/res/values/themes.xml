@@ -1,9 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.MyDicodingEvent" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.MyDicodingEvent" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/primary_pink</item>
+        <item name="colorOnPrimary">@color/on_primary_pink</item>
+        <item name="colorPrimaryContainer">@color/primary_container_pink</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container_pink</item>
     </style>
-
-    <style name="Theme.MyDicodingEvent" parent="Base.Theme.MyDicodingEvent" />
 </resources>

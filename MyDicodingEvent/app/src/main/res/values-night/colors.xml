@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="black">#FF000000</color>-->
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Warna pink untuk mode gelap -->
+    <color name="primary_pink">#F06292</color> <!-- Lebih terang agar kontras -->
+    <color name="on_primary_pink">#000000</color>
+    <color name="primary_container_pink">#AD1457</color>
+    <color name="on_primary_container_pink">#FFFFFF</color>
+</resources>
