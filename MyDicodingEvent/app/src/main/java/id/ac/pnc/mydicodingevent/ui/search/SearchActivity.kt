@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnc.mydicodingevent.ListEventAdapter
 import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.databinding.ActivitySearchBinding
-import kotlin.getValue
 
 class SearchActivity : AppCompatActivity() {
 
@@ -29,7 +28,6 @@ class SearchActivity : AppCompatActivity() {
 
         binding = ActivitySearchBinding.inflate(layoutInflater)
 
-
         setContentView(binding.root)
 
         supportActionBar?.apply {
@@ -42,7 +40,6 @@ class SearchActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             viewModel.searchEvent(keyword)
         }
-
 
         with(binding) {
             searchBar.setText(intent.getStringExtra(EXTRA_SEARCH))
@@ -85,7 +82,6 @@ class SearchActivity : AppCompatActivity() {
         binding.btnTryAgain.setOnClickListener {
             viewModel.searchEvent(binding.searchBar.text.toString())
             binding.errorPage.visibility = View.GONE
-
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

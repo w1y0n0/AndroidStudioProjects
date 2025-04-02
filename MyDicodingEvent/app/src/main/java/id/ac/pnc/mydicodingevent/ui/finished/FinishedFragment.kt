@@ -1,11 +1,12 @@
 package id.ac.pnc.mydicodingevent.ui.finished
 
+import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import id.ac.pnc.mydicodingevent.ListEventAdapter
@@ -24,7 +25,9 @@ class FinishedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listEvent.observe(viewLifecycleOwner) {
 
-            binding.rvFinished.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            val spanCount = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
+            binding.rvFinished.layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+
             val adapter = ListEventAdapter(it, horizontal = true, disableEllipsize = true)
             binding.rvFinished.adapter = adapter
 
@@ -39,7 +42,6 @@ class FinishedFragment : Fragment() {
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {
-
             binding.errorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
             binding.errorMessage.text = it
         }

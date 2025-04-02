@@ -16,7 +16,6 @@ import id.ac.pnc.mydicodingevent.utils.loadImage
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
-import kotlin.getValue
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,7 +25,6 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -35,13 +33,11 @@ class DetailActivity : AppCompatActivity() {
             title = "Detail Event"
         }
 
-
         val eventId = intent.getIntExtra(EXTRA_EVENT_ID, -1)
 
         if (savedInstanceState == null) {
             viewModel.getDetailEvent(eventId)
         }
-
 
         viewModel.event.observe(this) {
             supportActionBar?.title = it.name
@@ -88,7 +84,6 @@ class DetailActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-
 
         viewModel.errorMessage.observe(this) {
             binding.errorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE

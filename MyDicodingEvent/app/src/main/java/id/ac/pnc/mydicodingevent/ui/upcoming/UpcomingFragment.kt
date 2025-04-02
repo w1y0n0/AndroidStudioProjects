@@ -2,16 +2,15 @@ package id.ac.pnc.mydicodingevent.ui.upcoming
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnc.mydicodingevent.ListEventAdapter
 import id.ac.pnc.mydicodingevent.databinding.FragmentUpcomingBinding
-import kotlin.getValue
 
 class UpcomingFragment : Fragment() {
 
@@ -42,7 +41,6 @@ class UpcomingFragment : Fragment() {
             binding.errorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
             binding.errorMessage.text = it
         }
-
 
     }
 

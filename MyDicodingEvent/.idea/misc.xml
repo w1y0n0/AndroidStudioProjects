@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.home.HomeFragment finishedViewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.home.HomeFragment upcomingViewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.detail.DetailActivity viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.finished.FinishedFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.search.SearchActivity viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingFragment viewModel$delegate" />
+    </entry_points>
+    <pattern value="id.ac.pnc.mydicodingevent.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.retrofit.ApiConfig" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.retrofit.ApiConfig.Companion" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.detail.DetailActivity" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.detail.DetailActivityViewModel" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.DetailEventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.DetailEventResponse" method="DetailEventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.Event" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.Event" method="Event" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.EventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.EventResponse" method="EventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.ExampleInstrumentedTest" />
+    <pattern value="id.ac.pnc.mydicodingevent.ExampleUnitTest" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.finished.FinishedFragment" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.finished.FinishedViewModel" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.detail.DetailActivityViewModel" method="getDetailEvent" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.finished.FinishedViewModel" method="getEvents" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel" method="getEvents" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.home.HomeFragment" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.ListEventsItem" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.response.ListEventsItem" method="ListEventsItem" />
+    <pattern value="id.ac.pnc.mydicodingevent.MainActivity" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.search.SearchActivity" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.search.SearchActivityViewModel" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.search.SearchActivityViewModel" method="searchEvent" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingFragment" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel" />
+    <pattern value="id.ac.pnc.mydicodingevent.ExampleInstrumentedTest" method="useAppContext" />
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

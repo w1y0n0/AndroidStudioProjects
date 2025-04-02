@@ -55,7 +55,7 @@ class ListEventAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.Companion.EXTRA_EVENT_ID, data.id)
+            intent.putExtra(DetailActivity.EXTRA_EVENT_ID, data.id)
             holder.itemView.context.startActivity(intent)
         }
 
