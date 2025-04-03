@@ -1,20 +1,20 @@
 package id.ac.pnc.mydicodingevent.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.pnc.mydicodingevent.ListEventAdapter
 import id.ac.pnc.mydicodingevent.R
+import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.databinding.FragmentHomeBinding
+import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
 import id.ac.pnc.mydicodingevent.ui.finished.FinishedViewModel
 import id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel
 import id.ac.pnc.mydicodingevent.utils.HorizontalSpacingItemDecoration
+import id.ac.pnc.mydicodingevent.utils.Result
 
 class HomeFragment : Fragment() {
 
@@ -24,23 +24,25 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val upcomingViewModel: UpcomingViewModel by viewModels()
-    private val finishedViewModel: FinishedViewModel by viewModels()
+    private val upcomingViewModel: UpcomingViewModel by viewModels {
+        ViewModelFactory.getInstance(
+            requireActivity()
+        )
+    }
+    private val finishedViewModel: FinishedViewModel by viewModels {
+        ViewModelFactory.getInstance(
+            requireActivity()
+        )
+    }
 
     private val limit = 5
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        if (savedInstanceState == null) {
-            finishedViewModel.getEvents(limit)
-            upcomingViewModel.getEvents(limit)
-        }
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (savedInstanceState == null) {
+            finishedViewModel.getFinishedEvent(limit)
+            upcomingViewModel.getUpcomingEvent(limit)
+        }
 
         getFinishedEvent()
         getUpcomingEvent()
@@ -55,11 +57,11 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         binding.btnTryAgain.setOnClickListener {
-            upcomingViewModel.getEvents(limit)
+            upcomingViewModel.getUpcomingEvent(limit)
             binding.upcomingErrorPage.visibility = View.GONE
         }
         binding.finishedBtnTryAgain.setOnClickListener {
-            finishedViewModel.getEvents(limit)
+            finishedViewModel.getFinishedEvent(limit)
             binding.finishedErrorPage.visibility = View.GONE
         }
 
@@ -68,51 +70,70 @@ class HomeFragment : Fragment() {
 
     private fun getFinishedEvent() {
 
-        finishedViewModel.listEvent.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getFinishedEvent: $it")
-            binding.rvFinished.layoutManager = LinearLayoutManager(requireActivity())
-            val adapter = ListEventAdapter(it)
-            binding.rvFinished.adapter = adapter
-            binding.finishedErrorPage.visibility = View.GONE
-        }
+        finishedViewModel.listEvents.observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is Result.Loading -> {
+                        binding.finishedProgressBar.visibility = View.VISIBLE
+                    }
 
-        finishedViewModel.isLoading.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getFinishedEvent: $it")
-            binding.finishedProgressBar.visibility = if (it) View.VISIBLE else View.GONE
-        }
+                    is Result.Success -> {
+                        binding.finishedProgressBar.visibility = View.GONE
+                        val listEventData = result.data
+                        binding.rvFinished.layoutManager = LinearLayoutManager(
+                            requireActivity(),
+                        )
+                        val adapter = ListEventAdapter(listEventData)
+                        binding.rvFinished.adapter = adapter
+                        binding.finishedErrorPage.visibility = View.GONE
+                    }
 
-        finishedViewModel.errorMessage.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getFinishedEvent: $it")
-            binding.finishedErrorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.finishedErrorMessage.text = it
+                    is Result.Error -> {
+                        binding.finishedProgressBar.visibility = View.GONE
+                        binding.finishedErrorPage.visibility =
+                            if (result.error.isNotEmpty()) View.VISIBLE else View.GONE
+                        binding.errorMessage.text = result.error
+                    }
+                }
+            }
         }
 
     }
 
     private fun getUpcomingEvent() {
 
-        upcomingViewModel.listEvent.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getUpcomingEvent: $it")
-            binding.rvUpcoming.layoutManager =
-                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-            val adapter = ListEventAdapter(it, horizontal = true)
-            binding.rvUpcoming.adapter = adapter
+        upcomingViewModel.listEvents.observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is Result.Loading -> {
+                        binding.upcomingProgressBar.visibility = View.VISIBLE
+                    }
 
-            val spacingInPixels = resources.getDimensionPixelSize(R.dimen.item_spacing_8)
-            binding.rvUpcoming.addItemDecoration(HorizontalSpacingItemDecoration(spacingInPixels))
+                    is Result.Success -> {
+                        binding.upcomingProgressBar.visibility = View.GONE
+                        val listEventData = result.data
+                        binding.rvUpcoming.layoutManager = LinearLayoutManager(
+                            requireActivity(),
+                            LinearLayoutManager.HORIZONTAL,
+                            false
+                        )
+                        val adapter = ListEventAdapter(listEventData, horizontal = true)
+                        binding.rvUpcoming.adapter = adapter
 
-            binding.upcomingErrorPage.visibility = View.GONE
-        }
+                        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.item_spacing_8)
+                        binding.rvUpcoming.addItemDecoration(HorizontalSpacingItemDecoration(spacingInPixels))
 
-        upcomingViewModel.isLoading.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getUpcomingEvent: $it")
-            binding.upcomingProgressBar.isVisible = it
-        }
+                        binding.upcomingErrorPage.visibility = View.GONE
+                    }
 
-        upcomingViewModel.errorMessage.observe(viewLifecycleOwner) {
-            Log.d("HomeFragment", "getUpcomingEvent: $it")
-            binding.upcomingErrorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.errorMessage.text = it
+                    is Result.Error -> {
+                        binding.upcomingProgressBar.visibility = View.GONE
+                        binding.upcomingErrorPage.visibility =
+                            if (result.error.isNotEmpty()) View.VISIBLE else View.GONE
+                        binding.errorMessage.text = result.error
+                    }
+                }
+            }
         }
 
     }

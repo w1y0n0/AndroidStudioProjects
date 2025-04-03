@@ -1,4 +1,4 @@
-package id.ac.pnc.mydicodingevent.data.retrofit
+package id.ac.pnc.mydicodingevent.data.remote.retrofit
 
 import id.ac.pnc.mydicodingevent.BuildConfig
 import okhttp3.OkHttpClient

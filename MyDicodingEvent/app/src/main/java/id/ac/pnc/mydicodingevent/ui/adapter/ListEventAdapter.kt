@@ -1,11 +1,11 @@
-package id.ac.pnc.mydicodingevent
+package id.ac.pnc.mydicodingevent.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import id.ac.pnc.mydicodingevent.data.response.ListEventsItem
+import id.ac.pnc.mydicodingevent.data.remote.response.ListEventsItem
 import id.ac.pnc.mydicodingevent.databinding.HorizontalRowEventBinding
 import id.ac.pnc.mydicodingevent.databinding.ItemRowEventBinding
 import id.ac.pnc.mydicodingevent.ui.detail.DetailActivity
@@ -55,7 +55,7 @@ class ListEventAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.EXTRA_EVENT_ID, data.id)
+            intent.putExtra(DetailActivity.Companion.EXTRA_EVENT_ID, data.id)
             holder.itemView.context.startActivity(intent)
         }
 

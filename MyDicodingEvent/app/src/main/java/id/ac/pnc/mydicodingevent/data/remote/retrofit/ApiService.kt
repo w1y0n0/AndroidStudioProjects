@@ -1,7 +1,7 @@
-package id.ac.pnc.mydicodingevent.data.retrofit
+package id.ac.pnc.mydicodingevent.data.remote.retrofit
 
-import id.ac.pnc.mydicodingevent.data.response.DetailEventResponse
-import id.ac.pnc.mydicodingevent.data.response.EventResponse
+import id.ac.pnc.mydicodingevent.data.remote.response.DetailEventResponse
+import id.ac.pnc.mydicodingevent.data.remote.response.EventResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

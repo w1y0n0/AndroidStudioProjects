@@ -9,9 +9,10 @@ import androidx.core.net.toUri
 import androidx.core.text.HtmlCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
 import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.databinding.ActivityDetailBinding
+import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
+import id.ac.pnc.mydicodingevent.utils.Result
 import id.ac.pnc.mydicodingevent.utils.loadImage
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -21,12 +22,16 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
-    private val viewModel: DetailActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
+        val viewModel: DetailActivityViewModel by viewModels {
+            factory
+        }
 
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
@@ -39,41 +44,57 @@ class DetailActivity : AppCompatActivity() {
             viewModel.getDetailEvent(eventId)
         }
 
-        viewModel.event.observe(this) {
-            supportActionBar?.title = it.name
+        viewModel.event.observe(this) { result ->
+            if (result != null) {
+                when (result) {
+                    is Result.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
 
-            binding.apply {
-                detailBg.loadImage(it.mediaCover)
-                binding.detailName.text = it.name
-                binding.detailOwnerName.text = getString(R.string.penyelenggara, it.ownerName)
-                binding.detailTime.text = it.beginTime
-                binding.detailQuota.text =
-                    getString(
-                        R.string.sisa_kuota,
-                        String.format(Locale.getDefault(), "%d", it.quota - it.registrants)
-                    )
+                    is Result.Success -> {
+                        binding.progressBar.visibility = View.GONE
+                        val eventData = result.data
 
-                binding.detailDesc.text = HtmlCompat.fromHtml(
-                    it.description,
-                    HtmlCompat.FROM_HTML_MODE_LEGACY
-                )
-                binding.detailRegister.visibility = View.VISIBLE
-                // Format sesuai dengan string "2024-05-17 17:00:00"
-                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-                // Parsing endTime dengan format yang benar
-                val endTime = LocalDateTime.parse(it.endTime, formatter)
-                // Bandingkan dengan waktu sekarang (apakah waktu event sudah berakhir?)
-                // isBefore: Cek apakah "endTime < waktu sekarang"
-                if (endTime.isBefore(LocalDateTime.now())) {
-                    binding.detailRegister.text = getString(R.string.pendaftaran_tutup)
+                        supportActionBar?.title = eventData.name
+
+                        binding.apply {
+                            detailBg.loadImage(eventData.mediaCover)
+                            binding.detailName.text = eventData.name
+                            binding.detailOwnerName.text = getString(R.string.penyelenggara, eventData.ownerName)
+                            binding.detailTime.text = eventData.beginTime
+                            binding.detailQuota.text =
+                                getString(
+                                    R.string.sisa_kuota,
+                                    String.format(Locale.getDefault(), "%d", eventData.quota - eventData.registrants)
+                                )
+
+                            binding.detailDesc.text = HtmlCompat.fromHtml(
+                                eventData.description,
+                                HtmlCompat.FROM_HTML_MODE_LEGACY
+                            )
+                            binding.detailRegister.visibility = View.VISIBLE
+                            // Format sesuai dengan string "2024-05-17 17:00:00"
+                            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                            // Parsing endTime dengan format yang benar
+                            val endTime = LocalDateTime.parse(eventData.endTime, formatter)
+                            // Bandingkan dengan waktu sekarang (apakah waktu event sudah berakhir?)
+                            // isBefore: Cek apakah "endTime < waktu sekarang"
+                            if (endTime.isBefore(LocalDateTime.now())) {
+                                binding.detailRegister.text = getString(R.string.pendaftaran_tutup)
+                            }
+
+                            binding.errorPage.visibility = View.GONE
+                        }
+                    }
+
+                    is Result.Error -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.errorPage.visibility =
+                            if (result.error.isNotEmpty()) View.VISIBLE else View.GONE
+                        binding.errorMessage.text = result.error
+                    }
                 }
-
-                binding.errorPage.visibility = View.GONE
             }
-        }
-
-        viewModel.isLoading.observe(this) {
-            binding.progressBar.isVisible = it
         }
 
         binding.detailRegister.setOnClickListener {
@@ -83,11 +104,6 @@ class DetailActivity : AppCompatActivity() {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(intent)
-        }
-
-        viewModel.errorMessage.observe(this) {
-            binding.errorPage.visibility = if (it.isNotEmpty()) View.VISIBLE else View.GONE
-            binding.errorMessage.text = it
         }
 
         binding.btnTryAgain.setOnClickListener {

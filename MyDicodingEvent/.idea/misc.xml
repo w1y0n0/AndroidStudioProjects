@@ -37,6 +37,21 @@
     <pattern value="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingFragment" />
     <pattern value="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel" />
     <pattern value="id.ac.pnc.mydicodingevent.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.retrofit.ApiConfig" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.DetailEventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.DetailEventResponse" method="DetailEventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.Event" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.Event" method="Event" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.EventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.EventResponse" method="EventResponse" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.ListEventsItem" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.remote.response.ListEventsItem" method="ListEventsItem" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.MainActivity" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideEventRepository" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideFinishedEventsRepository" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideSearchEventsRepository" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideUpcomingEventsRepository" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">

@@ -1,49 +1,17 @@
 package id.ac.pnc.mydicodingevent.ui.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import id.ac.pnc.mydicodingevent.data.response.DetailEventResponse
-import id.ac.pnc.mydicodingevent.data.response.Event
-import id.ac.pnc.mydicodingevent.data.retrofit.ApiConfig
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import id.ac.pnc.mydicodingevent.data.remote.response.Event
+import id.ac.pnc.mydicodingevent.repository.EventRepository
+import id.ac.pnc.mydicodingevent.utils.Result
 
-class DetailActivityViewModel: ViewModel() {
-    private val _event = MutableLiveData<Event>()
-    val event: LiveData<Event> = _event
+class DetailActivityViewModel(private val eventRepository: EventRepository) : ViewModel() {
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    lateinit var event: LiveData<Result<Event>>
 
-    private val _errorMessage = MutableLiveData<String>()
-    val errorMessage: LiveData<String> = _errorMessage
-
-    fun getDetailEvent(id: Int) {
-        _isLoading.value = true
-        val client = ApiConfig.getApiService().getEventDetails(id)
-        client.enqueue(object : Callback<DetailEventResponse> {
-            override fun onResponse(
-                call: Call<DetailEventResponse>,
-                response: Response<DetailEventResponse>
-            ) {
-                _isLoading.value = false
-                if (response.isSuccessful) {
-                    _event.value = response.body()?.event
-                    _errorMessage.value = ""
-                } else {
-                    Log.e("DetailActivityViewModel", response.message())
-                    _errorMessage.value = response.message()
-                }
-            }
-
-            override fun onFailure(call: Call<DetailEventResponse>, t: Throwable) {
-                _isLoading.value = false
-                Log.e("DetailActivityViewModel", "onFailure: ${t.message.toString()}")
-                _errorMessage.value = t.message.toString()
-            }
-        })
+    fun getDetailEvent(id: Int): LiveData<Result<Event>> {
+        event = eventRepository.getDetailEvent(id)
+        return event
     }
 }

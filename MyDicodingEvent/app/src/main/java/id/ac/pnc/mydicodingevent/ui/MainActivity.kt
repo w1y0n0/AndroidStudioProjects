@@ -1,4 +1,4 @@
-package id.ac.pnc.mydicodingevent
+package id.ac.pnc.mydicodingevent.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.databinding.ActivityMainBinding
 import id.ac.pnc.mydicodingevent.ui.search.SearchActivity
 
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             binding.searchView.editText.setOnEditorActionListener { _, _, _ ->
                 binding.searchView.hide()
                 val intent = Intent(this@MainActivity, SearchActivity::class.java)
-                intent.putExtra(SearchActivity.EXTRA_SEARCH, binding.searchView.text.toString())
+                intent.putExtra(SearchActivity.Companion.EXTRA_SEARCH, binding.searchView.text.toString())
                 startActivity(intent)
                 false
             }
