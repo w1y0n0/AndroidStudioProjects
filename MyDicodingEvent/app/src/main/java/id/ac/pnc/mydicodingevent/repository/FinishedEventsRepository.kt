@@ -14,7 +14,6 @@ class FinishedEventsRepository private constructor(private val apiService: ApiSe
 
     private val result = MediatorLiveData<Result<List<ListEventsItem>>>()
 
-
     fun getFinishedEvent(limit: Int): LiveData<Result<List<ListEventsItem>>> {
         result.value = Result.Loading
         val client = apiService.getFinishedEvents(limit)

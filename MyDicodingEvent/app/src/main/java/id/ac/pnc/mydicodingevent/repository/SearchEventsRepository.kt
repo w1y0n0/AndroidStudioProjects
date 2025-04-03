@@ -14,7 +14,6 @@ class SearchEventsRepository private constructor(private val apiService: ApiServ
 
     private val result = MediatorLiveData<Result<List<ListEventsItem>>>()
 
-
     fun searchEvents(keyword: String): LiveData<Result<List<ListEventsItem>>> {
         result.value = Result.Loading
         val client = apiService.searchEvents(keyword)

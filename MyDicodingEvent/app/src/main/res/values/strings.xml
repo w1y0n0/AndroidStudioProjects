@@ -21,4 +21,14 @@
     <string name="try_again_upcoming_events_connection_error">Try Again Upcoming Events - Connection Error</string>
     <string name="try_again_finished_events_connection_error">Try Again Finished Events - Connection Error</string>
     <string name="finished_events_list">List of finished events</string>
+    <string name="fab_favorite">fab favorite</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="enable_dark_mode_for_better_night_time_readability">Enable dark mode for better night-time readability.</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="receive_daily_reminders_for_upcoming_events">Receive daily reminders for upcoming events.</string>
+    <string name="list_of_favorite_events">List of Favorite Events</string>
+    <string name="switch_dark_mode">Switch Dark Mode</string>
+    <string name="switch_daily_reminder">Switch Daily Reminder</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_settings">Settings</string>
 </resources>

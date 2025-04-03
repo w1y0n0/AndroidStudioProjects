@@ -2,6 +2,7 @@ package id.ac.pnc.mydicodingevent.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.core.text.HtmlCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import id.ac.pnc.mydicodingevent.R
+import id.ac.pnc.mydicodingevent.data.local.entity.FavoriteEvent
 import id.ac.pnc.mydicodingevent.databinding.ActivityDetailBinding
 import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
 import id.ac.pnc.mydicodingevent.utils.Result
@@ -58,6 +60,30 @@ class DetailActivity : AppCompatActivity() {
                         supportActionBar?.title = eventData.name
 
                         binding.apply {
+
+                            viewModel.getFavoriteEventById(eventData.id)
+                                .observe(this@DetailActivity) { favoriteEvent ->
+                                    Log.d("DetailActivity", "favoriteEvent: $favoriteEvent")
+                                    val favoriteEventData = FavoriteEvent(
+                                        eventData.id,
+                                        eventData.name,
+                                        eventData.mediaCover,
+                                        eventData.imageLogo,
+                                        eventData.summary
+                                    )
+                                    if (favoriteEvent != null) {
+                                        binding.detailFabFavorite.setImageResource(R.drawable.baseline_favorite_24)
+                                        detailFabFavorite.setOnClickListener {
+                                            viewModel.delete(favoriteEventData)
+                                        }
+                                    } else {
+                                        binding.detailFabFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
+                                        detailFabFavorite.setOnClickListener {
+                                            viewModel.insert(favoriteEventData)
+                                        }
+                                    }
+                                }
+
                             detailBg.loadImage(eventData.mediaCover)
                             binding.detailName.text = eventData.name
                             binding.detailOwnerName.text = getString(R.string.penyelenggara, eventData.ownerName)
@@ -72,6 +98,9 @@ class DetailActivity : AppCompatActivity() {
                                 eventData.description,
                                 HtmlCompat.FROM_HTML_MODE_LEGACY
                             )
+
+                            binding.detailFabFavorite.visibility = View.VISIBLE
+
                             binding.detailRegister.visibility = View.VISIBLE
                             // Format sesuai dengan string "2024-05-17 17:00:00"
                             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")

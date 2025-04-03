@@ -8,6 +8,11 @@
       <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.finished.FinishedFragment viewModel$delegate" />
       <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.search.SearchActivity viewModel$delegate" />
       <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="file://$PROJECT_DIR$/app/src/main/java/id/ac/pnc/mydicodingevent/ui/settings/SettingsPreferences.kt dataStore$delegate" />
+      <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/id/ac/pnc/mydicodingevent/ui/settings/SettingsPreferences.kt" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.home.HomeFragment settingsViewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.favorite.FavoriteFragment viewModel$delegate" />
+      <entry_point TYPE="field" FQNAME="id.ac.pnc.mydicodingevent.ui.settings.SettingsFragment viewModel$delegate" />
     </entry_points>
     <pattern value="id.ac.pnc.mydicodingevent.ExampleUnitTest" method="addition_isCorrect" />
     <pattern value="id.ac.pnc.mydicodingevent.data.retrofit.ApiConfig" />
@@ -52,6 +57,13 @@
     <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideFinishedEventsRepository" />
     <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideSearchEventsRepository" />
     <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideUpcomingEventsRepository" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.settings.SettingsFragment.Companion" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.worker.DailyReminderWorker.Companion" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.worker.DailyReminderWorker" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.local.entity.FavoriteEvent" />
+    <pattern value="id.ac.pnc.mydicodingevent.data.local.entity.FavoriteEventDao" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.favorite.FavoriteFragment" />
+    <pattern value="id.ac.pnc.mydicodingevent.ui.settings.SettingsFragment" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
@@ -59,5 +71,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1971027216856892" />
+      </ProjectState>
+    </option>
   </component>
 </project>
