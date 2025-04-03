@@ -64,6 +64,7 @@
     <pattern value="id.ac.pnc.mydicodingevent.data.local.entity.FavoriteEventDao" />
     <pattern value="id.ac.pnc.mydicodingevent.ui.favorite.FavoriteFragment" />
     <pattern value="id.ac.pnc.mydicodingevent.ui.settings.SettingsFragment" />
+    <pattern value="id.ac.pnc.mydicodingevent.di.Injection" method="provideRepository" />
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">

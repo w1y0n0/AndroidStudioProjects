@@ -28,15 +28,14 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:paddingVertical="@dimen/small_margin"
                 android:paddingHorizontal="@dimen/default_margin"
+                android:paddingVertical="@dimen/small_margin"
                 android:text="@string/card_title"
-                android:textColor="@color/primary_pink"
                 android:textAppearance="?attr/textAppearanceTitleSmall"
+                android:textColor="#D81B60"
                 tools:text="@tools:sample/lorem" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

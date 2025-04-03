@@ -31,4 +31,7 @@
     <string name="switch_daily_reminder">Switch Daily Reminder</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_settings">Settings</string>
+    <string name="list_of_search_events">List of search events</string>
+    <string name="list_of_finished_events">List of finished events</string>
+    <string name="list_of_upcoming_events">List of upcoming events</string>
 </resources>

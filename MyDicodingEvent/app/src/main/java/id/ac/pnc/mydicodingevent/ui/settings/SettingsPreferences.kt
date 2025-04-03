@@ -1,4 +1,4 @@
-@file:Suppress("PrivatePropertyName", "PrivatePropertyName")
+@file:Suppress("PrivatePropertyName")
 
 package id.ac.pnc.mydicodingevent.ui.settings
 
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
-@Suppress("PrivatePropertyName", "PrivatePropertyName")
+@Suppress("PrivatePropertyName")
 class SettingsPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
     private val THEME_KEY = booleanPreferencesKey("theme_setting")

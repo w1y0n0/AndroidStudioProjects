@@ -28,7 +28,8 @@
             android:layout_marginTop="20dp"
             android:text="@string/oops_something_went_wrong"
             android:textAlignment="center"
-            android:textAppearance="?attr/textAppearanceBodyLarge" />
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            tools:ignore="VisualLintBounds" />
 
         <Button
             android:id="@+id/btn_try_again"
@@ -36,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="@string/try_again" />
+            android:text="@string/try_again"
+            tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
     <ProgressBar
@@ -51,9 +53,9 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_finished"
+        android:contentDescription="@string/list_of_finished_events"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="4dp"/>

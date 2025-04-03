@@ -31,8 +31,8 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@string/card_title"
-                android:textColor="@color/primary_pink"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="#D81B60"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
@@ -45,7 +45,8 @@
                 android:text="@string/card_summary"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
-                tools:text="@tools:sample/lorem/random" />
+                tools:text="@tools:sample/lorem/random"
+                tools:ignore="VisualLintLongText" />
         </LinearLayout>
 
     </LinearLayout>
