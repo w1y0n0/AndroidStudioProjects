@@ -9,22 +9,22 @@ import id.ac.pnc.mydicodingevent.repository.SearchEventsRepository
 import id.ac.pnc.mydicodingevent.repository.UpcomingEventsRepository
 
 object Injection {
-    fun provideRepository(context: Context): EventRepository {
+    fun provideRepository(): EventRepository {
         val apiService = ApiConfig.getApiService()
         return EventRepository.getInstance(apiService)
     }
 
-    fun provideUpcomingEventsRepository(context: Context): UpcomingEventsRepository {
+    fun provideUpcomingEventsRepository(): UpcomingEventsRepository {
         val apiService = ApiConfig.getApiService()
         return UpcomingEventsRepository.getInstance(apiService)
     }
 
-    fun provideFinishedEventsRepository(context: Context): FinishedEventsRepository {
+    fun provideFinishedEventsRepository(): FinishedEventsRepository {
         val apiService = ApiConfig.getApiService()
         return FinishedEventsRepository.getInstance(apiService)
     }
 
-    fun provideSearchEventsRepository(context: Context): SearchEventsRepository {
+    fun provideSearchEventsRepository(): SearchEventsRepository {
         val apiService = ApiConfig.getApiService()
         return SearchEventsRepository.getInstance(apiService)
     }

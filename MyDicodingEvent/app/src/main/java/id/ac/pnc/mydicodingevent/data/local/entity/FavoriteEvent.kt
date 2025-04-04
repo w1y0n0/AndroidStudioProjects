@@ -24,4 +24,4 @@ data class FavoriteEvent(
 
     @ColumnInfo(name = "summary")
     var summary: String = ""
-): Parcelable
+) : Parcelable

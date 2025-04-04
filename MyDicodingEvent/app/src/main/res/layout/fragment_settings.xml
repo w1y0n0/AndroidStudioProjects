@@ -35,12 +35,12 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switch_dark_mode"
-            android:contentDescription="@string/switch_dark_mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxWidth="320dp"
             android:layout_gravity="end"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:contentDescription="@string/switch_dark_mode"
+            android:maxWidth="320dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -71,11 +71,11 @@
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switch_daily_reminder"
-            android:contentDescription="@string/switch_daily_reminder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:contentDescription="@string/switch_daily_reminder" />
     </LinearLayout>
 
 </LinearLayout>

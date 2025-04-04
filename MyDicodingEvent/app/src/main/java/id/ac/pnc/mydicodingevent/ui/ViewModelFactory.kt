@@ -49,10 +49,10 @@ class ViewModelFactory private constructor(
         fun getInstance(context: Context): ViewModelFactory =
             instance ?: synchronized(this) {
                 instance ?: ViewModelFactory(
-                    Injection.provideRepository(context),
-                    Injection.provideUpcomingEventsRepository(context),
-                    Injection.provideFinishedEventsRepository(context),
-                    Injection.provideSearchEventsRepository(context),
+                    Injection.provideRepository(),
+                    Injection.provideUpcomingEventsRepository(),
+                    Injection.provideFinishedEventsRepository(),
+                    Injection.provideSearchEventsRepository(),
                     Injection.provideFavoriteEventRepository(context),
                     SettingsPreferences.getInstance(context.dataStore)
                 )

@@ -38,8 +38,7 @@ class DailyReminderWorker(context: Context, workerParams: WorkerParameters) :
         val client = apiService.getOneUpcomingEvent()
         client.enqueue(object : Callback<EventResponse> {
             override fun onResponse(
-                call: Call<EventResponse>,
-                response: Response<EventResponse>
+                call: Call<EventResponse>, response: Response<EventResponse>
             ) {
                 if (response.isSuccessful) {
                     val listEvents = response.body()?.listEvents
@@ -68,16 +67,12 @@ class DailyReminderWorker(context: Context, workerParams: WorkerParameters) :
             applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val notification: NotificationCompat.Builder =
             NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_upcoming_event_24)
-                .setSubText("Event yang akan datang")
-                .setContentTitle(title)
-                .setContentText(description)
+                .setSmallIcon(R.drawable.ic_upcoming_event_24).setSubText("Event yang akan datang")
+                .setContentTitle(title).setContentText(description)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
         val channel = NotificationChannel(
-            CHANNEL_ID,
-            CHANNEL_NAME,
-            NotificationManager.IMPORTANCE_HIGH
+            CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH
         )
         notification.setChannelId(CHANNEL_ID)
         notificationManager.createNotificationChannel(channel)

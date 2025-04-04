@@ -45,8 +45,8 @@
                 android:text="@string/card_summary"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary"
-                tools:text="@tools:sample/lorem/random"
-                tools:ignore="VisualLintLongText" />
+                tools:ignore="VisualLintLongText"
+                tools:text="@tools:sample/lorem/random" />
         </LinearLayout>
 
     </LinearLayout>

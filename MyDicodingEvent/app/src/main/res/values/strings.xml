@@ -34,4 +34,5 @@
     <string name="list_of_search_events">List of search events</string>
     <string name="list_of_finished_events">List of finished events</string>
     <string name="list_of_upcoming_events">List of upcoming events</string>
+    <string name="detail_event">Detail Event</string>
 </resources>

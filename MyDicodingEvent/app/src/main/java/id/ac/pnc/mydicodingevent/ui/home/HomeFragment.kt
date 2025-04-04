@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.pnc.mydicodingevent.R
-import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.databinding.FragmentHomeBinding
 import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
+import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.ui.finished.FinishedViewModel
 import id.ac.pnc.mydicodingevent.ui.settings.SettingsViewModel
 import id.ac.pnc.mydicodingevent.ui.upcoming.UpcomingViewModel
@@ -62,9 +62,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -126,15 +124,18 @@ class HomeFragment : Fragment() {
                         binding.upcomingProgressBar.visibility = View.GONE
                         val listEventData = result.data
                         binding.rvUpcoming.layoutManager = LinearLayoutManager(
-                            requireActivity(),
-                            LinearLayoutManager.HORIZONTAL,
-                            false
+                            requireActivity(), LinearLayoutManager.HORIZONTAL, false
                         )
                         val adapter = ListEventAdapter(listEventData, horizontal = true)
                         binding.rvUpcoming.adapter = adapter
 
-                        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.item_spacing_8)
-                        binding.rvUpcoming.addItemDecoration(HorizontalSpacingItemDecoration(spacingInPixels))
+                        val spacingInPixels =
+                            resources.getDimensionPixelSize(R.dimen.item_spacing_8)
+                        binding.rvUpcoming.addItemDecoration(
+                            HorizontalSpacingItemDecoration(
+                                spacingInPixels
+                            )
+                        )
 
                         binding.upcomingErrorPage.visibility = View.GONE
                     }

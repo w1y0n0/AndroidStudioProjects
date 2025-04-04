@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EventRepository private constructor(private val apiService: ApiService){
+class EventRepository private constructor(private val apiService: ApiService) {
 
     private val result = MediatorLiveData<Result<Event>>()
 

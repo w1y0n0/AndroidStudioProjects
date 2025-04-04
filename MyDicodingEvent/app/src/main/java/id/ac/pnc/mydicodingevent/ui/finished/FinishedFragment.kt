@@ -45,14 +45,23 @@ class FinishedFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
                         val listEventData = result.data
 
-                        val spanCount = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
-                        binding.rvFinished.layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+                        val spanCount =
+                            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
+                        binding.rvFinished.layoutManager = StaggeredGridLayoutManager(
+                            spanCount, StaggeredGridLayoutManager.VERTICAL
+                        )
 
-                        val adapter = ListEventAdapter(listEventData, horizontal = true, disableEllipsize = true)
+                        val adapter = ListEventAdapter(
+                            listEventData, horizontal = true, disableEllipsize = true
+                        )
                         binding.rvFinished.adapter = adapter
 
                         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.item_spacing)
-                        binding.rvFinished.addItemDecoration(GridSpacingItemDecoration(spacingInPixels))
+                        binding.rvFinished.addItemDecoration(
+                            GridSpacingItemDecoration(
+                                spacingInPixels
+                            )
+                        )
 
                         binding.rvFinished.adapter = adapter
                         binding.errorPage.visibility = View.GONE
@@ -70,8 +79,7 @@ class FinishedFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentFinishedBinding.inflate(inflater, container, false)

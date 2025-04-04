@@ -51,10 +51,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_upcoming"
-        android:contentDescription="@string/list_of_upcoming_events"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"/>
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:contentDescription="@string/list_of_upcoming_events" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

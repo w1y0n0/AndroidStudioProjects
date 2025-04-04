@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.R
 import id.ac.pnc.mydicodingevent.databinding.ActivitySearchBinding
 import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
+import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.utils.Result
 
 class SearchActivity : AppCompatActivity() {
@@ -21,10 +21,6 @@ class SearchActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(
             this@SearchActivity
         )
-    }
-
-    companion object {
-        const val EXTRA_SEARCH = "extra_search"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,4 +97,9 @@ class SearchActivity : AppCompatActivity() {
         onBackPressedDispatcher.onBackPressed()
         return super.onNavigateUp()
     }
+
+    companion object {
+        const val EXTRA_SEARCH = "extra_search"
+    }
+
 }

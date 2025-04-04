@@ -55,9 +55,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_finished"
-        android:contentDescription="@string/list_of_finished_events"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="4dp"/>
+        android:layout_marginHorizontal="4dp"
+        android:contentDescription="@string/list_of_finished_events" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

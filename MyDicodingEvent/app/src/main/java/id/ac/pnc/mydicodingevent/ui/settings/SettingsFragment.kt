@@ -1,13 +1,13 @@
 package id.ac.pnc.mydicodingevent.ui.settings
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
@@ -49,8 +49,7 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -75,14 +74,11 @@ class SettingsFragment : Fragment() {
     }
 
     private fun startPeriodicTask() {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
+        val constraints =
+            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
         periodicWorkRequest =
             PeriodicWorkRequest.Builder(DailyReminderWorker::class.java, 1, TimeUnit.DAYS)
-                .setConstraints(constraints)
-                .addTag(WORKER_TAG)
-                .build()
+                .setConstraints(constraints).addTag(WORKER_TAG).build()
         workManager.enqueue(periodicWorkRequest)
         viewModel.saveReminderSetting(true)
     }

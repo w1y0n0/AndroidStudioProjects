@@ -37,7 +37,7 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            title = "Detail Event"
+            title = getString(R.string.detail_event)
         }
 
         val eventId = intent.getIntExtra(EXTRA_EVENT_ID, -1)
@@ -72,12 +72,12 @@ class DetailActivity : AppCompatActivity() {
                                         eventData.summary
                                     )
                                     if (favoriteEvent != null) {
-                                        binding.detailFabFavorite.setImageResource(R.drawable.baseline_favorite_24)
+                                        detailFabFavorite.setImageResource(R.drawable.baseline_favorite_24)
                                         detailFabFavorite.setOnClickListener {
                                             viewModel.delete(favoriteEventData)
                                         }
                                     } else {
-                                        binding.detailFabFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
+                                        detailFabFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
                                         detailFabFavorite.setOnClickListener {
                                             viewModel.insert(favoriteEventData)
                                         }
@@ -85,23 +85,25 @@ class DetailActivity : AppCompatActivity() {
                                 }
 
                             detailBg.loadImage(eventData.mediaCover)
-                            binding.detailName.text = eventData.name
-                            binding.detailOwnerName.text = getString(R.string.penyelenggara, eventData.ownerName)
-                            binding.detailTime.text = eventData.beginTime
-                            binding.detailQuota.text =
-                                getString(
-                                    R.string.sisa_kuota,
-                                    String.format(Locale.getDefault(), "%d", eventData.quota - eventData.registrants)
+                            detailName.text = eventData.name
+                            detailOwnerName.text =
+                                getString(R.string.penyelenggara, eventData.ownerName)
+                            detailTime.text = eventData.beginTime
+                            detailQuota.text = getString(
+                                R.string.sisa_kuota, String.format(
+                                    Locale.getDefault(),
+                                    "%d",
+                                    eventData.quota - eventData.registrants
                                 )
-
-                            binding.detailDesc.text = HtmlCompat.fromHtml(
-                                eventData.description,
-                                HtmlCompat.FROM_HTML_MODE_LEGACY
                             )
 
-                            binding.detailFabFavorite.visibility = View.VISIBLE
+                            detailDesc.text = HtmlCompat.fromHtml(
+                                eventData.description, HtmlCompat.FROM_HTML_MODE_LEGACY
+                            )
 
-                            binding.detailRegister.visibility = View.VISIBLE
+                            detailFabFavorite.visibility = View.VISIBLE
+
+                            detailRegister.visibility = View.VISIBLE
                             // Format sesuai dengan string "2024-05-17 17:00:00"
                             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
                             // Parsing endTime dengan format yang benar
@@ -109,10 +111,10 @@ class DetailActivity : AppCompatActivity() {
                             // Bandingkan dengan waktu sekarang (apakah waktu event sudah berakhir?)
                             // isBefore: Cek apakah "endTime < waktu sekarang"
                             if (endTime.isBefore(LocalDateTime.now())) {
-                                binding.detailRegister.text = getString(R.string.pendaftaran_tutup)
+                                detailRegister.text = getString(R.string.pendaftaran_tutup)
                             }
 
-                            binding.errorPage.visibility = View.GONE
+                            errorPage.visibility = View.GONE
                         }
                     }
 

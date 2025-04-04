@@ -19,8 +19,7 @@ class SearchEventsRepository private constructor(private val apiService: ApiServ
         val client = apiService.searchEvents(keyword)
         client.enqueue(object : Callback<EventResponse> {
             override fun onResponse(
-                call: Call<EventResponse>,
-                response: Response<EventResponse>
+                call: Call<EventResponse>, response: Response<EventResponse>
             ) {
                 if (response.isSuccessful) {
                     result.value = Result.Success(response.body()!!.listEvents)

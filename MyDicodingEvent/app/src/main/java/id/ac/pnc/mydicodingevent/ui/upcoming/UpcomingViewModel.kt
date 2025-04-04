@@ -6,7 +6,8 @@ import id.ac.pnc.mydicodingevent.data.remote.response.ListEventsItem
 import id.ac.pnc.mydicodingevent.repository.UpcomingEventsRepository
 import id.ac.pnc.mydicodingevent.utils.Result
 
-class UpcomingViewModel(private val upcomingEventsRepository: UpcomingEventsRepository) : ViewModel() {
+class UpcomingViewModel(private val upcomingEventsRepository: UpcomingEventsRepository) :
+    ViewModel() {
 
     lateinit var listEvents: LiveData<Result<List<ListEventsItem>>>
 

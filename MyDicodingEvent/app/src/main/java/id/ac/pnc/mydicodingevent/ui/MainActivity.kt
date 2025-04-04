@@ -24,16 +24,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val requestPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                Toast.makeText(this, "Notifications permission granted", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Notifications permission rejected", Toast.LENGTH_SHORT).show()
-            }
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            Toast.makeText(this, "Notifications permission granted", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Notifications permission rejected", Toast.LENGTH_SHORT).show()
         }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +82,9 @@ class MainActivity : AppCompatActivity() {
             binding.searchView.editText.setOnEditorActionListener { _, _, _ ->
                 binding.searchView.hide()
                 val intent = Intent(this@MainActivity, SearchActivity::class.java)
-                intent.putExtra(SearchActivity.Companion.EXTRA_SEARCH, binding.searchView.text.toString())
+                intent.putExtra(
+                    SearchActivity.Companion.EXTRA_SEARCH, binding.searchView.text.toString()
+                )
                 startActivity(intent)
                 false
             }

@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.databinding.FragmentUpcomingBinding
 import id.ac.pnc.mydicodingevent.ui.ViewModelFactory
+import id.ac.pnc.mydicodingevent.ui.adapter.ListEventAdapter
 import id.ac.pnc.mydicodingevent.utils.Result
 
 class UpcomingFragment : Fragment() {
@@ -61,8 +61,7 @@ class UpcomingFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentUpcomingBinding.inflate(inflater, container, false)
         val root: View = binding.root

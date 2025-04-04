@@ -19,8 +19,7 @@ class FinishedEventsRepository private constructor(private val apiService: ApiSe
         val client = apiService.getFinishedEvents(limit)
         client.enqueue(object : Callback<EventResponse> {
             override fun onResponse(
-                call: Call<EventResponse>,
-                response: Response<EventResponse>
+                call: Call<EventResponse>, response: Response<EventResponse>
             ) {
                 if (response.isSuccessful) {
                     result.value = Result.Success(response.body()!!.listEvents)

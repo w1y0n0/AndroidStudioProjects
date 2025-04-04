@@ -15,19 +15,14 @@ class ListEventAdapter(
     private val listEvent: List<ListEventsItem>,
     private val horizontal: Boolean = false,
     private val disableEllipsize: Boolean = false
-) :
-    RecyclerView.Adapter<ListEventAdapter.ListViewHolder>() {
-    class ListViewHolder(var binding: ViewBinding) :
-        RecyclerView.ViewHolder(binding.root)
+) : RecyclerView.Adapter<ListEventAdapter.ListViewHolder>() {
+    class ListViewHolder(var binding: ViewBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
+        parent: ViewGroup, viewType: Int
     ): ListViewHolder {
         val binding = (if (horizontal) HorizontalRowEventBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+            LayoutInflater.from(parent.context), parent, false
         ) else ItemRowEventBinding.inflate(LayoutInflater.from(parent.context), parent, false))
         return ListViewHolder(binding)
     }
@@ -38,7 +33,6 @@ class ListEventAdapter(
         if (horizontal) {
             val binding = holder.binding as HorizontalRowEventBinding
             binding.cardTitle.text = data.name
-//            binding.cardSummary.text = data.summary
             binding.cardCover.loadImage(data.imageLogo)
 
             // Jika disableEllipsize = true, hapus batasan teks
