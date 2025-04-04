@@ -5,5 +5,11 @@
         <item name="colorOnPrimary">@color/on_primary_pink</item>
         <item name="colorPrimaryContainer">@color/primary_container_pink</item>
         <item name="colorOnPrimaryContainer">@color/on_primary_container_pink</item>
+
+        <!-- Edge-to-Edge Support -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 </resources>
