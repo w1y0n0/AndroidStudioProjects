@@ -1,3 +1,5 @@
+@file:Suppress("unused", "RedundantSuppression")
+
 package id.ac.pnc.mydicodingevent.ui.favorite
 
 import androidx.fragment.app.viewModels
@@ -77,4 +79,5 @@ class FavoriteFragment : Fragment() {
 
         return root
     }
+
 }

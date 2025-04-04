@@ -1,3 +1,5 @@
+@file:Suppress("unused", "RedundantSuppression")
+
 package id.ac.pnc.mydicodingevent.ui.search
 
 import android.os.Bundle

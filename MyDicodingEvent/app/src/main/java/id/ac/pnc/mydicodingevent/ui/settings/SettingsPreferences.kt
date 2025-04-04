@@ -1,4 +1,4 @@
-@file:Suppress("PrivatePropertyName")
+@file:Suppress("unused", "RedundantSuppression")
 
 package id.ac.pnc.mydicodingevent.ui.settings
 
