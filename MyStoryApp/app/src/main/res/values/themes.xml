@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.MyStoryApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black_pnc</item>
+        <item name="colorPrimary">@color/orange_pnc</item>
         <item name="colorPrimaryVariant">@color/orange_pnc</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/grey_pnc</item>
+        <item name="colorSecondary">@color/gray_pnc</item>
         <item name="colorSecondaryVariant">@color/blue_pnc</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
