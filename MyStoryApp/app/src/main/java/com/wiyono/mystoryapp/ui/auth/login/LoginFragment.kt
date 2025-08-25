@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.wiyono.mystoryapp.R
+import com.wiyono.mystoryapp.data.domain.Result
 import com.wiyono.mystoryapp.databinding.FragmentLoginBinding
 import com.wiyono.mystoryapp.ui.main.MainActivity
 import com.wiyono.mystoryapp.viewmodel.ViewModelFactory
@@ -34,42 +36,42 @@ class LoginFragment : Fragment() {
 
         loginViewModel = ViewModelProvider(this, ViewModelFactory(requireActivity()))[LoginViewModel::class.java]
 
-//        binding?.btnRegister?.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-//        }
+        binding?.btnRegister?.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
         binding?.btnLogin?.setOnClickListener {
             val email = binding?.edLoginEmail?.text.toString().trim()
             val password = binding?.edPasswordLogin?.text.toString().trim()
 
             if (!isFormValid(email, password)) {
-//                Toast.makeText(requireActivity(), getString(R.string.form_error), Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
+                Toast.makeText(requireActivity(), getString(R.string.form_error), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
-//            loginViewModel.login(email, password).observe(viewLifecycleOwner) { result ->
-//                when (result) {
-//                    is Result.Loading -> { showLoading(true) }
-//                    is Result.Success -> {
-//                        showLoading(false)
-//                        Toast.makeText(requireActivity(), result.data.message, Toast.LENGTH_SHORT).show()
-//                        val intent = Intent(context, MainActivity::class.java)
-//                        startActivity(intent)
-//                        requireActivity().finish()
-//                    }
-//                    is Result.Error -> {
-//                        showLoading(false)
-//                        Toast.makeText(requireActivity(), result.error, Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
+            loginViewModel.login(email, password).observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is Result.Loading -> { showLoading(true) }
+                    is Result.Success -> {
+                        showLoading(false)
+                        Toast.makeText(requireActivity(), result.data.message, Toast.LENGTH_SHORT).show()
+                        val intent = Intent(context, MainActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                    is Result.Error -> {
+                        showLoading(false)
+                        Toast.makeText(requireActivity(), result.error, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
 
         playAnimation()
     }
 
     private fun playAnimation() {
-        val title = ObjectAnimator.ofFloat(binding?.tvTitle, View.ALPHA, 1f).setDuration(500)
+        val title = ObjectAnimator.ofFloat(binding?.ivLoginLogo, View.ALPHA, 1f).setDuration(500)
         val email = ObjectAnimator.ofFloat(binding?.edLoginEmail, View.ALPHA, 1f).setDuration(500)
         val password = ObjectAnimator.ofFloat(binding?.edPasswordLogin, View.ALPHA, 1f).setDuration(500)
         val login = ObjectAnimator.ofFloat(binding?.btnLogin, View.ALPHA, 1f).setDuration(500)

@@ -7,4 +7,9 @@
     <string name="email_error">Masukkan email yang valid</string>
     <string name="password">Password</string>
     <string name="password_error">Password minimal 8 karakter</string>
+    <string name="name">Nama</string>
+    <string name="have_account">Sudah punya akun?</string>
+    <string name="form_error">"Form Wajib Diisi"</string>
+    <string name="dll">Lainnya</string>
+    <string name="logout">Logout</string>
 </resources>
