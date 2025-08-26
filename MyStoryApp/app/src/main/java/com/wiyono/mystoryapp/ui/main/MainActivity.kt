@@ -16,6 +16,7 @@ import com.wiyono.mystoryapp.data.domain.Result
 import com.wiyono.mystoryapp.data.remote.response.StoryItem
 import com.wiyono.mystoryapp.databinding.ActivityMainBinding
 import com.wiyono.mystoryapp.ui.adapter.StoryAdapter
+import com.wiyono.mystoryapp.ui.add.UploadStoryActivity
 import com.wiyono.mystoryapp.ui.auth.AuthActivity
 import com.wiyono.mystoryapp.ui.detail.DetailActivity
 import com.wiyono.mystoryapp.viewmodel.ViewModelFactory
@@ -119,8 +120,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun addStory() {
         binding.fab.setOnClickListener {
-//            val intent = Intent(this@MainActivity, UploadStoryActivity::class.java)
-//            launcherCamera.launch(intent)
+            val intent = Intent(this@MainActivity, UploadStoryActivity::class.java)
+            launcherCamera.launch(intent)
         }
     }
 

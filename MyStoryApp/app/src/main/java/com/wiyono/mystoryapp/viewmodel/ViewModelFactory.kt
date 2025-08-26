@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.wiyono.mystoryapp.di.Injection
+import com.wiyono.mystoryapp.ui.add.upload.UploadViewModel
 import com.wiyono.mystoryapp.ui.auth.login.LoginViewModel
 import com.wiyono.mystoryapp.ui.auth.register.RegisterViewModel
 import com.wiyono.mystoryapp.ui.detail.DetailViewModel
@@ -29,9 +30,9 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(Injection.provideStoryRepository(context)) as T
             }
-//            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
-//                UploadViewModel(Injection.provideStoryRepository(context)) as T
-//            }
+            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
+                UploadViewModel(Injection.provideStoryRepository(context)) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }

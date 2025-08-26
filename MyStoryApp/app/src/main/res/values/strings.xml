@@ -17,4 +17,15 @@
     <string name="foto_story">Foto Story</string>
     <string name="person_icon">Icon User</string>
     <string name="avatar">Avatar</string>
+    <string name="take_a_photo">Ambil Foto</string>
+    <string name="tutup_camera">Tutup Camera</string>
+    <string name="flip_kamera">Flip Kamera</string>
+    <string name="pilih_galery_foto">Pilih Galery Foto</string>
+    <string name="batal_upload_story">Batal Upload Story</string>
+    <string name="add_description">Tambahkan deskripsi...</string>
+    <string name="kirim_story">Kirim Story</string>
+    <string name="flip_to_front_camera">Ubah jadi kamera depan</string>
+    <string name="get_photo_failed">Gagal mengambil gambar</string>
+    <string name="camera_failed">Gagal memunculkan kamera</string>
+    <string name="data_empty">Data tidak boleh kosong!</string>
 </resources>

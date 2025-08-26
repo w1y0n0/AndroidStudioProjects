@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
+    alias(libs.plugins.navigation.safeargs)
 }
 
 android {
@@ -71,4 +73,12 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     implementation(libs.circleimageview)
+
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+
+    implementation(libs.androidx.swiperefreshlayout)
+
+    implementation(libs.compressor)
 }
