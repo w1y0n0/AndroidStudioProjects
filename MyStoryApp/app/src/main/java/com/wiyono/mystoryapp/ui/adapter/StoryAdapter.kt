@@ -34,7 +34,7 @@ class StoryAdapter: ListAdapter<StoryItem, StoryAdapter.ViewHolder>(DIFF_CALLBAC
                     .load(data.photoUrl)
                     .into(ivItemPhoto)
                 tvItemName.text = data.name
-                tvDate.text = data.createdAt?.withDateFormat()
+                tvDate.text = data.createdAt?.withDateFormat("withTime")
             }
         }
     }

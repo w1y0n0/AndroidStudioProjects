@@ -13,7 +13,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -89,8 +88,32 @@ fun uriToFile(selectImage: Uri, context: Context): File {
     return myFile
 }
 
-fun String.withDateFormat(): String {
-    val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-    val date = format.parse(this) as Date
-    return DateFormat.getDateInstance(DateFormat.FULL).format(date)
+@Suppress("DEPRECATION")
+fun String.withDateFormat(style: String = "long"): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+    val date = inputFormat.parse(this) as Date
+    val indonesia = Locale("in", "ID")
+
+    return when (style) {
+        "short" -> {
+            // Format pendek: 26/08/2025
+            val outputFormat = SimpleDateFormat("dd/MM/yyyy", indonesia)
+            outputFormat.format(date)
+        }
+        "shortTime" -> {
+            // Format pendek: 26/08/2025 11.42
+            val outputFormat = SimpleDateFormat("dd/MM/yyyy HH.mm", indonesia)
+            outputFormat.format(date)
+        }
+        "withTime" -> {
+            // Format dengan waktu: Selasa, 26/08/2025 11.42
+            val outputFormat = SimpleDateFormat("EEEE, dd/MM/yyyy HH.mm", indonesia)
+            outputFormat.format(date)
+        }
+        else -> {
+            // Format panjang (default): Selasa, 26 Agustus 2025
+            val outputFormat = SimpleDateFormat("EEEE, dd MMMM yyyy", indonesia)
+            outputFormat.format(date)
+        }
+    }
 }

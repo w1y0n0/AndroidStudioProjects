@@ -53,8 +53,10 @@
         android:layout_margin="24dp"
         android:src="@drawable/outline_add_photo_alternate_24"
         android:backgroundTint="@color/blue_pnc"
+        android:contentDescription="@string/add_story"
         app:tint="@null"
+        app:fabSize="normal"
+        app:maxImageSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

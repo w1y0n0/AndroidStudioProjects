@@ -17,6 +17,7 @@ import com.wiyono.mystoryapp.data.remote.response.StoryItem
 import com.wiyono.mystoryapp.databinding.ActivityMainBinding
 import com.wiyono.mystoryapp.ui.adapter.StoryAdapter
 import com.wiyono.mystoryapp.ui.auth.AuthActivity
+import com.wiyono.mystoryapp.ui.detail.DetailActivity
 import com.wiyono.mystoryapp.viewmodel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
@@ -91,11 +92,10 @@ class MainActivity : AppCompatActivity() {
     private fun onClickCallback() {
         storyAdapter.setOnItemCallback(object : StoryAdapter.OnItemClickCallback {
             override fun onItemClicked(data: StoryItem) {
-//                val intent = Intent(this@MainActivity, DetailActivity::class.java)
-//                intent.putExtra(DetailActivity.EXTRA_ID, data.id)
-//                startActivity(intent)
+                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_ID, data.id)
+                startActivity(intent)
             }
-
         })
     }
 
