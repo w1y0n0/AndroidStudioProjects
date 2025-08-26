@@ -54,14 +54,14 @@ class LoginFragment : Fragment() {
                     is Result.Loading -> { showLoading(true) }
                     is Result.Success -> {
                         showLoading(false)
-                        Toast.makeText(requireActivity(), result.data.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), "Selamat Datang, " + result.data.loginResult!!.name, Toast.LENGTH_SHORT).show()
                         val intent = Intent(context, MainActivity::class.java)
                         startActivity(intent)
                         requireActivity().finish()
                     }
                     is Result.Error -> {
                         showLoading(false)
-                        Toast.makeText(requireActivity(), result.error, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), result.error + ": Email/Password salah.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

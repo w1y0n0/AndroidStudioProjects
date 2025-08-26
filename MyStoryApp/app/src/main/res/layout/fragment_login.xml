@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_login_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    
+
     <com.wiyono.mystoryapp.ui.customview.PasswordEditText
         android:id="@+id/ed_password_login"
         android:alpha="0"

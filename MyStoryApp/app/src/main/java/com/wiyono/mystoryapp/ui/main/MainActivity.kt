@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,14 +51,26 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.btn_logout -> {
-                mainViewModel.logout()
-
-                val intent = Intent(this, AuthActivity::class.java)
-                startActivity(intent)
-                finish()
+                showLogoutDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showLogoutDialog() {
+        AlertDialog.Builder(this).apply {
+            setTitle("Logout")
+            setMessage("Apakah Anda yakin ingin keluar ?")
+            setPositiveButton("Ya") { _, _ ->
+                mainViewModel.logout()
+
+                val intent = Intent(this@MainActivity, AuthActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            setNegativeButton("Tidak") { dialog, _ -> dialog.dismiss() }
+            create().show()
         }
     }
 

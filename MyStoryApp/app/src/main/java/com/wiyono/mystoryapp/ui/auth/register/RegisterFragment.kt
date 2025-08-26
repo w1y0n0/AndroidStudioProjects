@@ -52,13 +52,13 @@ class RegisterFragment : Fragment() {
                 when (result) {
                     is Result.Error -> {
                         showLoading(false)
-                        Toast.makeText(requireActivity(), result.error, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), result.error + ": Registration Failed.", Toast.LENGTH_SHORT).show()
                     }
                     is Result.Loading -> { showLoading(true) }
                     is Result.Success -> {
                         showLoading(false)
                         findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                        Toast.makeText(requireActivity(), result.data.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireActivity(), "Registration Success: " + result.data.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

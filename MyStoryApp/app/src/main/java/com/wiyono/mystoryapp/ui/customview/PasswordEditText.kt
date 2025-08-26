@@ -54,7 +54,6 @@ class PasswordEditText: AppCompatEditText {
             }
 
             override fun afterTextChanged(s: Editable?) {}
-
         })
     }
 
@@ -72,5 +71,6 @@ class PasswordEditText: AppCompatEditText {
         )
     }
 
-    private fun isValidPassword(password: CharSequence?) = if (password.isNullOrEmpty()) false else password.length >= 8
+    private fun isValidPassword(password: CharSequence?) =
+        !password.isNullOrEmpty() && password.length >= 8
 }
