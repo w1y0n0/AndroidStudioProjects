@@ -9,6 +9,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/splash_image"
         android:src="@drawable/pnc_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

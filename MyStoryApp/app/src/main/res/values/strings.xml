@@ -28,4 +28,7 @@
     <string name="get_photo_failed">Gagal mengambil gambar</string>
     <string name="camera_failed">Gagal memunculkan kamera</string>
     <string name="data_empty">Data tidak boleh kosong!</string>
+    <string name="login_logo">Login Logo</string>
+    <string name="splash_image">Splash Image</string>
+    <string name="register_logo">Register Logo</string>
 </resources>

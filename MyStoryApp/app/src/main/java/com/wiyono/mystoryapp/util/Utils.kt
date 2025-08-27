@@ -96,22 +96,18 @@ fun String.withDateFormat(style: String = "long"): String {
 
     return when (style) {
         "short" -> {
-            // Format pendek: 26/08/2025
             val outputFormat = SimpleDateFormat("dd/MM/yyyy", indonesia)
             outputFormat.format(date)
         }
         "shortTime" -> {
-            // Format pendek: 26/08/2025 11.42
             val outputFormat = SimpleDateFormat("dd/MM/yyyy HH.mm", indonesia)
             outputFormat.format(date)
         }
         "withTime" -> {
-            // Format dengan waktu: Selasa, 26/08/2025 11.42
             val outputFormat = SimpleDateFormat("EEEE, dd/MM/yyyy HH.mm", indonesia)
             outputFormat.format(date)
         }
         else -> {
-            // Format panjang (default): Selasa, 26 Agustus 2025
             val outputFormat = SimpleDateFormat("EEEE, dd MMMM yyyy", indonesia)
             outputFormat.format(date)
         }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_bar_color">#000000</color>
+    <color name="toolbar_color">@color/black_pnc</color>
+    <color name="button_color">@color/green_dark</color>
+    <color name="button_text_color">#FFFFFFFF</color>
+    <color name="bg_button_color">@color/black_pnc</color>
+    <color name="outline_button_color">@color/gray_pnc</color>
+    <color name="fab_color">@color/green_dark</color>
+</resources>

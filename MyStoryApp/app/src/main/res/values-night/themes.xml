@@ -10,8 +10,7 @@
         <item name="colorSecondaryVariant">@color/blue_pnc</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="actionBarTheme">@style/Theme.AppCompat.DayNight</item>
+        <item name="android:statusBarColor">@color/status_bar_color</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

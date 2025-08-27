@@ -9,4 +9,12 @@
     <color name="blue_pnc">#60b6e5</color>
     <color name="gray_pnc">#c8c8c6</color>
     <color name="orange_pnc">#eb9f38</color>
+
+    <color name="status_bar_color">@color/orange_pnc</color>
+    <color name="toolbar_color">@color/orange_pnc</color>
+    <color name="button_color">@color/orange_pnc</color>
+    <color name="button_text_color">@color/black_pnc</color>
+    <color name="bg_button_color">@android:color/transparent</color>
+    <color name="outline_button_color">@color/orange_pnc</color>
+    <color name="fab_color">@color/blue_pnc</color>
 </resources>

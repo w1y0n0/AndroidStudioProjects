@@ -46,18 +46,15 @@ class DetailActivity : AppCompatActivity() {
                     showLoading(false)
                     val item = result.data
                     binding.apply {
-                        // Foto detail
                         Glide.with(this@DetailActivity)
                             .load(item.photoUrl)
                             .into(ivDetailPhoto)
 
-                        // Avatar di toolbar
                         Glide.with(this@DetailActivity)
                             .load(R.drawable.outline_account_circle_24)
                             .placeholder(R.drawable.outline_account_circle_24)
                             .into(ivAvatar)
 
-                        // Title & Subtitle custom
                         tvTitle.text = item.name
                         tvSubtitle.text = item.createdAt?.withDateFormat("shortTime")
 
